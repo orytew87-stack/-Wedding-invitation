@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <style>
+      /* ... існуючі стилі без змін ... */
       * {
         margin: 0;
         padding: 0;
@@ -377,6 +378,24 @@
           grid-template-columns: 1fr;
         }
       }
+
+      /* Специфічні стилі для форми RSVP згідно з макетом */
+      .rsvp-form .radio-group {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .rsvp-form .radio-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+      }
+      .rsvp-form .radio-option input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -437,32 +456,34 @@
             <div class="event-icon">💕</div>
             <div class="event-details">
               <p class="event-time">15:00</p>
-              <h3>Весільна церемонія</h3>
-              <p>Церемонія з ведучим під відкритим небом</p>
+              <h3>Церемонія та привітання</h3>
+              <p>Обмін обітницями під відкритим небом</p>
             </div>
           </div>
           <div class="event-card">
             <div class="event-icon">🍽️</div>
             <div class="event-details">
               <p class="event-time">16:00</p>
-              <h3>Святковий бенкет</h3>
+              <h3>Банкет та забава</h3>
               <p>Вишукані страви та тости на честь молодят</p>
             </div>
           </div>
           <div class="event-card">
-            <div class="event-icon">🎵</div>
+            <div class="event-icon">🎂</div>
             <div class="event-details">
-              <p class="event-time">19:00</p>
-              <h3>Танці та веселощі</h3>
-              <p>Час святкувати до самого ранку!</p>
+              <p class="event-time">20:30 - 21:00</p>
+              <h3>Весільний торт</h3>
+              <p>Найсолодший момент вечора</p>
             </div>
           </div>
         </div>
         <div class="venue-card">
           <div style="font-size: 2rem">📍</div>
-          <h3>Місце проведення</h3>
-          <p><b>Strichka Vdnh</b></p>
-          <p>проспект Академіка Глушкова, 1<br />Київ</p>
+          <p class="event-time">22:00</p>
+          <h3>Кінець вечора</h3>
+          <p>Дякуємо, що розділили цей день з нами!</p>
+          <p style="margin-top: 15px"><b>Strichka Vdnh</b></p>
+          <p>проспект Академіка Глушкова, 1, Київ</p>
         </div>
       </div>
     </section>
@@ -571,17 +592,20 @@
                 placeholder="Введіть ваше повне ім'я"
               />
             </div>
+
             <div class="form-group">
               <label>Чи будете ви присутні? *</label>
-              <label
-                ><input type="radio" name="attending" required /> Так, з радістю
-                прийду!</label
-              ><br />
-              <label
-                ><input type="radio" name="attending" /> На жаль, не
-                зможу</label
-              >
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="attending" required /> Так, з
+                  радістю прийду!
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="attending" /> На жаль, не зможу
+                </label>
+              </div>
             </div>
+
             <div class="form-group">
               <label>Кількість гостей *</label>
               <select required>
@@ -590,15 +614,16 @@
                 <option>2 гості</option>
                 <option>3 гості</option>
                 <option>4 гості</option>
-                <option>5+ гостей</option>
               </select>
             </div>
+
             <div class="form-group">
               <label>Дієтичні побажання / Алергії</label>
               <textarea
                 placeholder="Вкажіть особливі побажання або алергії (необов'язково)"
               ></textarea>
             </div>
+
             <button type="submit" class="btn-submit">
               ВІДПРАВИТИ ВІДПОВІДЬ
             </button>
@@ -617,7 +642,7 @@
       >
         ❤️ Євген & Валерія ❤️
       </p>
-      <p>26 червня 2026 • Стрічка ВДНГ, Київ</p>
+      <p>28 червня 2026 • Стрічка ВДНГ, Київ</p>
       <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.8">
         З любов'ю створено для нашого особливого дня
       </p>
