@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Євген & Валерія - Весільне запрошення</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Lato", sans-serif;
+        line-height: 1.6;
+        color: #4a4a4a;
+        background-color: #faf6f1;
+        overflow-x: hidden;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+          url("./Images/hero-images1.jpg");
+        z-index: 1;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        padding: 20px;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .hero h1 {
+        font-family: "Great Vibes", cursive;
+        font-size: 6rem;
+        color: #fff8e7;
+        margin-bottom: 20px;
+      }
+
+      .hero-date {
+        font-size: 1.5rem;
+        color: #fff8e7;
+        font-weight: 300;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+
+      .hero-location {
+        font-size: 1.2rem;
+        color: rgba(255, 248, 231, 0.9);
+        font-weight: 300;
+        letter-spacing: 1px;
+        margin-bottom: 40px;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        padding: 15px 40px;
+        background-color: #8b9a7e;
+        color: #fff8e7;
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 400;
+        letter-spacing: 3px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .btn-primary:hover {
+        background-color: #7d8471;
+        transform: scale(1.05);
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff8e7;
+        animation: bounce 2s infinite;
+        z-index: 10;
+      }
+
+      .section {
+        padding: 80px 20px;
+      }
+
+      .section-cream {
+        background-color: #faf6f1;
+      }
+
+      .section-ivory {
+        background-color: #fff8e7;
+      }
+
+      .section-sage {
+        background-color: #8b9a7e;
+        color: #fff8e7;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-family: "Great Vibes", cursive;
+        font-size: 4.5rem;
+        color: #7d8471;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .section-sage .section-title {
+        color: #fff8e7;
+      }
+
+      .divider {
+        width: 100px;
+        height: 1px;
+        background-color: #8b9a7e;
+        margin: 0 auto 60px;
+      }
+
+      .section-sage .divider {
+        background-color: #fff8e7;
+      }
+
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .story-image img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 2px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .story-text p {
+        margin-bottom: 20px;
+        line-height: 1.8;
+      }
+
+      .events-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+
+      .event-card {
+        background: white;
+        border-radius: 2px;
+        padding: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        gap: 20px;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .event-card:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .event-icon {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        background-color: #8b9a7e;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff8e7;
+        font-size: 1.5rem;
+      }
+
+      .event-time {
+        color: #8b9a7e;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+
+      .event-details h3 {
+        color: #4a4a4a;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+
+      .venue-card {
+        background-color: #8b9a7e;
+        color: #fff8e7;
+        border-radius: 2px;
+        padding: 50px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .venue-card h3 {
+        font-family: "Great Vibes", cursive;
+        font-size: 2.5rem;
+        margin: 20px 0;
+      }
+
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        margin-bottom: 50px;
+      }
+
+      .faq-card {
+        background: #fff8e7;
+        border-radius: 2px;
+        padding: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .faq-header {
+        display: flex;
+        gap: 20px;
+      }
+
+      .faq-icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        background-color: #7d8471;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff8e7;
+        font-size: 1.2rem;
+      }
+
+      .faq-content h3 {
+        color: #4a4a4a;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+
+      .faq-content p {
+        color: #6b6b6b;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .rsvp-container {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .rsvp-form {
+        background: white;
+        border-radius: 2px;
+        padding: 50px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 30px;
+      }
+
+      .form-group label {
+        display: block;
+        color: #4a4a4a;
+        margin-bottom: 10px;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 15px;
+        background-color: #f8f8f8;
+        border: 1px solid #d4d8ce;
+        border-radius: 2px;
+        font-family: "Lato", sans-serif;
+        font-size: 1rem;
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .btn-submit {
+        width: 100%;
+        padding: 20px;
+        background-color: #8b9a7e;
+        color: #fff8e7;
+        border: none;
+        border-radius: 2px;
+        font-size: 0.875rem;
+        letter-spacing: 3px;
+        cursor: pointer;
+      }
+
+      footer {
+        background-color: #7d8471;
+        color: #fff8e7;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        40% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 4rem;
+        }
+        .story-grid,
+        .events-grid {
+          grid-template-columns: 1fr;
+        }
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Євген & Валерія</h1>
+        <p class="hero-date">28 червня 2026</p>
+        <p class="hero-location">Стрічка ВДНГ, Київ</p>
+        <a href="#rsvp" class="btn-primary">ПІДТВЕРДИТИ УЧАСТЬ</a>
+      </div>
+      <div class="scroll-indicator">▼</div>
+    </section>
+
+    <section class="section section-cream">
+      <div class="container">
+        <div class="story-grid">
+          <div class="story-image">
+            <img src="./Images/hero-images.jpg" alt="Наша історія" />
+          </div>
+          <div class="story-text">
+            <h2 class="section-title">Наша історія</h2>
+            <div class="divider"></div>
+            <p>
+              Все почалося в стінах коледжу з щирої дружби, що тривала два роки.
+              Наші зустрічі в гуртожитку та нескінченні нічні розмови по
+              телефону поступово перетворили просте знайомство на дещо значно
+              більше та глибше.
+            </p>
+            <p>
+              З того часу минуло вже майже вісім років, наповнених підтримкою та
+              вмінням чути один одного. Ми разом пройшли через виклики та
+              сварки, завжди знаходячи шлях до примирення та стаючи ще ближчими.
+            </p>
+            <p>
+              Наше особливе «Так» прозвучало серед величних Карпатських гір, і
+              тепер ми готові зробити наступний крок. Будемо щасливі бачити вас
+              на нашому святі, де ми розпочнемо нову главу нашого життя!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-ivory">
+      <div class="container">
+        <h2 class="section-title">Програма весілля</h2>
+        <div class="divider"></div>
+        <div class="events-grid">
+          <div class="event-card">
+            <div class="event-icon">🕐</div>
+            <div class="event-details">
+              <p class="event-time">14:00</p>
+              <h3>Збір гостей</h3>
+              <p>Вітаємо вас у нашому святковому просторі</p>
+            </div>
+          </div>
+          <div class="event-card">
+            <div class="event-icon">💕</div>
+            <div class="event-details">
+              <p class="event-time">15:00</p>
+              <h3>Весільна церемонія</h3>
+              <p>Церемонія з ведучим під відкритим небом</p>
+            </div>
+          </div>
+          <div class="event-card">
+            <div class="event-icon">🍽️</div>
+            <div class="event-details">
+              <p class="event-time">16:00</p>
+              <h3>Святковий бенкет</h3>
+              <p>Вишукані страви та тости на честь молодят</p>
+            </div>
+          </div>
+          <div class="event-card">
+            <div class="event-icon">🎵</div>
+            <div class="event-details">
+              <p class="event-time">19:00</p>
+              <h3>Танці та веселощі</h3>
+              <p>Час святкувати до самого ранку!</p>
+            </div>
+          </div>
+        </div>
+        <div class="venue-card">
+          <div style="font-size: 2rem">📍</div>
+          <h3>Місце проведення</h3>
+          <p><b>Strichka Vdnh</b></p>
+          <p>проспект Академіка Глушкова, 1<br />Київ</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-sage">
+      <div class="container">
+        <h2 class="section-title">Корисна інформація</h2>
+        <div class="divider"></div>
+        <div class="faq-grid">
+          <div class="faq-card">
+            <div class="faq-header">
+              <div class="faq-icon">👔</div>
+              <div class="faq-content">
+                <h3>Дрес-код</h3>
+                <p>
+                  Формальний одяг у палітрі бохо/рустік. Рекомендуємо природні
+                  відтінки: зелений шавлії, бежевий, теракотовий, м'який білий.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-card">
+            <div class="faq-header">
+              <div class="faq-icon">📍</div>
+              <div class="faq-content">
+                <h3>Як дістатися</h3>
+                <p>
+                  Маршрут від Львова: трасою М06 на захід (120 км, ~2 години).
+                  Детальні координати надішлемо після підтвердження.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-card">
+            <div class="faq-header">
+              <div class="faq-icon">💐</div>
+              <div class="faq-content">
+                <h3>Замість квітів</h3>
+                <p>
+                  Просимо не приносити букети квітів. Замість них можете
+                  подарувати нам настільні ігри з нашого віш-листу або зробити
+                  донат на ЗСУ на місці зустрічі.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-card">
+            <div class="faq-header">
+              <div class="faq-icon">🚌</div>
+              <div class="faq-content">
+                <h3>Трансфер</h3>
+                <p>
+                  Організовуємо комфортабельний автобус з центру міста до
+                  локації о 13:00. Збір біля головної площі.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-card">
+            <div class="faq-header">
+              <div class="faq-icon">✨</div>
+              <div class="faq-content">
+                <h3>Подарунки</h3>
+                <p>
+                  Найкращий подарунок - ваша присутність! Якщо бажаєте, будемо
+                  вдячні за внесок у наш весільний фонд.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-card">
+            <div class="faq-header">
+              <div class="faq-icon">☕</div>
+              <div class="faq-content">
+                <h3>Особливі потреби</h3>
+                <p>
+                  Вкажіть, будь ласка, дієтичні обмеження або алергії у формі
+                  RSVP - ми все врахуємо.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cream" id="rsvp">
+      <div class="rsvp-container">
+        <h2 class="section-title">Ваша відповідь</h2>
+        <div class="divider"></div>
+        <p style="text-align: center; margin-bottom: 40px">
+          Будь ласка, підтвердіть вашу участь до 1 травня 2026
+        </p>
+        <div class="rsvp-form">
+          <form
+            onsubmit="
+              alert('Дякуємо за відповідь!');
+              return false;
+            "
+          >
+            <div class="form-group">
+              <label>Ім'я та Прізвище *</label>
+              <input
+                type="text"
+                required
+                placeholder="Введіть ваше повне ім'я"
+              />
+            </div>
+            <div class="form-group">
+              <label>Чи будете ви присутні? *</label>
+              <label
+                ><input type="radio" name="attending" required /> Так, з радістю
+                прийду!</label
+              ><br />
+              <label
+                ><input type="radio" name="attending" /> На жаль, не
+                зможу</label
+              >
+            </div>
+            <div class="form-group">
+              <label>Кількість гостей *</label>
+              <select required>
+                <option value="">Оберіть...</option>
+                <option>1 гість</option>
+                <option>2 гості</option>
+                <option>3 гості</option>
+                <option>4 гості</option>
+                <option>5+ гостей</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Дієтичні побажання / Алергії</label>
+              <textarea
+                placeholder="Вкажіть особливі побажання або алергії (необов'язково)"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              ВІДПРАВИТИ ВІДПОВІДЬ
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p
+        style="
+          font-family: &quot;Great Vibes&quot;, cursive;
+          font-size: 2rem;
+          margin: 10px 0;
+        "
+      >
+        ❤️ Нікко & Соленн ❤️
+      </p>
+      <p>5 червня 2026 • Карпатські гори, Україна</p>
+      <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.8">
+        З любов'ю створено для нашого особливого дня
+      </p>
+    </footer>
+  </body>
+</html>
