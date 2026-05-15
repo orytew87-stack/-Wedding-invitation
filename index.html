@@ -464,7 +464,7 @@
             <div class="event-icon">🍽️</div>
             <div class="event-details">
               <p class="event-time">16:00</p>
-              <h3>Банкет та забава</h3>
+              <h3>Банкет</h3>
               <p>Вишукані страви та тости на честь молодят</p>
             </div>
           </div>
@@ -477,16 +477,8 @@
             </div>
           </div>
         </div>
-        <div class="venue-card">
-          <div style="font-size: 2rem">📍</div>
-          <p class="event-time">22:00</p>
-          <h3>Місце проведення</h3>
-          <p style="margin-top: 15px"><b>Strichka Vdnh</b></p>
-          <p>проспект Академіка Глушкова, 1, Київ</p>
-        </div>
       </div>
     </section>
-
     <section class="section section-sage">
       <div class="container">
         <h2 class="section-title">Корисна інформація</h2>
@@ -498,21 +490,10 @@
               <div class="faq-content">
                 <h3>Дрес-код</h3>
                 <p>
-                  Для нас головне — ваша присутність та гарний настрій! Ми не
-                  встановлюємо суворих рамок: обирайте будь-яке зручне та
-                  улюблене вбрання.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="faq-card">
-            <div class="faq-header">
-              <div class="faq-icon">📍</div>
-              <div class="faq-content">
-                <h3>Як дістатися</h3>
-                <p>
-                  Локація розташована на території ВДНГ, тож ви легко знайдете
-                  її за вказівниками після входу на територію парку.
+                  Раді бачити вас у будь-якому зручному образі! Єдине прохання:
+                  залиште білий колір для нареченої та уникайте чорних
+                  відтінків. Нехай цей день буде наповнений світлими та
+                  кольоровими емоціями!
                 </p>
               </div>
             </div>
@@ -523,9 +504,9 @@
               <div class="faq-content">
                 <h3>Замість квітів</h3>
                 <p>
-                  Просимо не приносити букети квітів. Замість них можете
-                  подарувати нам настільні ігри чи пляшку якогось алкоголю або
-                  зробити донат на ЗСУ на місці зустрічі.
+                  Замість квітів будемо раді настільним іграм, пляшці вашого
+                  улюбленого напою або донату на ЗСУ, який можна буде зробити
+                  безпосередньо на місці"
                 </p>
               </div>
             </div>
@@ -539,35 +520,17 @@
               </div>
             </div>
           </div>
-          <div class="faq-card">
-            <div class="faq-header">
-              <div class="faq-icon">✨</div>
-              <div class="faq-content">
-                <h3>Подарунки</h3>
-                <p>
-                  Найкращий подарунок - ваша присутність! Якщо бажаєте, будемо
-                  вдячні за внесок у наш весільний фонд.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="faq-card">
-            <div class="faq-header">
-              <div class="faq-icon">☕</div>
-              <div class="faq-content">
-                <h3>Особливі потреби</h3>
-                <p></p>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="faq-card map-card" style="grid-column: 1 / -1">
           <div class="faq-header">
             <div class="faq-icon">📍</div>
             <div class="faq-content" style="width: 100%">
-              <h3>Локація на мапі</h3>
+              <h3>Місце проведення</h3>
+              <p>
+                <b>Strichka Vdnh</b>
+              </p>
               <p style="margin-bottom: 15px">
-                Натисніть на мапу, щоб прокласти маршрут до Strichka Vdnh
+                проспект Академіка Глушкова, 1, Київ
               </p>
               <div class="map-wrapper">
                 <iframe
@@ -594,49 +557,64 @@
           Будь ласка, підтвердіть вашу участь до 1 червня 2026
         </p>
         <div class="rsvp-form">
-          <form
-            onsubmit="
-              alert('Дякуємо за відповідь!');
-              return false;
-            "
-          >
+          <form action="https://formspree.io/f/xykoqlbl" method="POST">
             <div class="form-group">
-              <label>Ім'я та Прізвище *</label>
+              <label>Ім'я та Прізвище</label>
               <input
                 type="text"
+                name="fullname"
                 required
                 placeholder="Введіть ваше повне ім'я"
               />
             </div>
 
             <div class="form-group">
-              <label>Чи будете ви присутні? *</label>
+              <label>Чи будете ви присутні?</label>
               <div class="radio-group">
                 <label class="radio-option">
-                  <input type="radio" name="attending" required /> Так, з
-                  радістю прийду!
+                  <input type="radio" name="attending" value="Yes" required />
+                  Так, з радістю прийду!
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="attending" /> На жаль, не зможу
+                  <input type="radio" name="attending" value="No" /> На жаль, не
+                  зможу
                 </label>
               </div>
             </div>
 
             <div class="form-group">
-              <label>Кількість гостей *</label>
-              <select required>
+              <label>Кількість гостей</label>
+              <select name="guests" required>
                 <option value="">Оберіть...</option>
-                <option>1 гість</option>
-                <option>2 гості</option>
-                <option>3 гості</option>
-                <option>4 гості</option>
+                <option value="1">1 гість</option>
+                <option value="2">2 гості</option>
+                <option value="3">3 гості</option>
+                <option value="4">4 гості</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label>Дієтичні побажання / Алергії</label>
+              <label>Чи потрібен вам вечірній трансфер (о 22:00)? *</label>
+              <div class="radio-group" style="margin-bottom: 15px">
+                <label class="radio-option">
+                  <input
+                    type="radio"
+                    name="transfer_needed"
+                    value="Yes"
+                    required
+                  />
+                  Так, планую скористатися
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="transfer_needed" value="No" />
+                  Ні, доберуся самостійно
+                </label>
+              </div>
+
+              <label>Куди саме вас потрібно довезти?</label>
               <textarea
-                placeholder="Вкажіть особливі побажання або алергії (необов'язково)"
+                name="transfer_destination"
+                placeholder="Вкажіть район або назву вулиці (наприклад: Голосіївський район або метро Контрактова площа)"
               ></textarea>
             </div>
 
